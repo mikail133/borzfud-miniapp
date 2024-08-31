@@ -5,11 +5,6 @@ function toggleMenu() {
     document.body.classList.toggle('menu-open');
 }
 
-function closeMenu() {
-    menuOpen = false;
-    document.body.classList.remove('menu-open');
-}
-
 function openMenu() {
     toggleMenu();
     setTimeout(() => {
@@ -36,12 +31,12 @@ function loadImage(url, callback) {
 
 // Загружаем изображения и устанавливаем их в меню
 const menuItems = [
-    {name: 'Бургер', price: 250, image: 'burger.jpg'},
-    {name: 'Филе', price: 280, image: 'fillet.jpg'},
-    {name: 'Суп', price: 200, image: 'soup.jpg'},
-    {name: 'Пирога', price: 220, image: 'pie.jpg'},
-    {name: 'Салат', price: 180, image: 'salad.jpg'},
-    {name: 'Десерт', price: 150, image: 'dessert.jpg'}
+    { id: 1, name: 'Бургер', price: 250, image: 'burger.jpg' },
+    { id: 2, name: 'Филе', price: 280, image: 'fillet.jpg' },
+    { id: 3, name: 'Суп', price: 200, image: 'soup.jpg' },
+    { id: 4, name: 'Пирог', price: 220, image: 'pie.jpg' },
+    { id: 5, name: 'Салат', price: 180, image: 'salad.jpg' },
+    { id: 6, name: 'Десерт', price: 150, image: 'dessert.jpg' }
 ];
 
 menuItems.forEach(item => {
@@ -55,8 +50,13 @@ menuItems.forEach(item => {
         `;
         document.querySelector('.menu-items').appendChild(menuItem);
 
+        // Обработчик клика для отправки данных в Telegram WebApp
         menuItem.onclick = () => {
-            window.Telegram.WebApp.menuItem(item.id);
+            if (window.Telegram && window.Telegram.WebApp) {
+                window.Telegram.WebApp.sendData(JSON.stringify(item));
+            } else {
+                alert(`${item.name} добавлен в заказ!`);
+            }
         };
     });
 });
