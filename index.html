@@ -2,27 +2,59 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borzfud</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Меню Borzfud</h1>
-    <button onclick="window.Telegram.WebApp.openMenu()">Открыть меню</button>
-    <div id="menuContent"></div>
-
-    <script>
-        function openMenu() {
-            const content = document.getElementById('menuContent');
-            content.innerHTML = `
-                <h2>Выберите блюдо:</h2>
-                <button onclick="window.Telegram.WebApp.closeMenu()">Закрыть</button>
-                <ul>
-                    <li><a href="#" onclick="window.Telegram.WebApp.menuItem(1)">Бургер</a></li>
-                    <li><a href="#" onclick="window.Telegram.WebApp.menuItem(2)">Филе</a></li>
-                    <li><a href="#" onclick="window.Telegram.WebApp.menuItem(3)">Суп</a></li>
-                </ul>
-            `;
-        }
-    </script>
+    <header>
+        <nav>
+            <div class="logo">Borzfud</div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#menu">Меню</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Добро пожаловать в Borzfud!</h1>
+            <p>Находите здесь самые вкусные блюдо в городе!</p>
+            <button onclick="openMenu()">Открыть меню</button>
+        </section>
+        <section id="menu">
+            <h2>Меню</h2>
+            <div class="menu-container">
+                <!-- Здесь будут карточки блюд -->
+            </div>
+        </section>
+        <section id="about">
+            <h2>О нас</h2>
+            <p>Мы - команда молодых и амбициозных людей, стремящихся создать лучший ресторан в городе.</p>
+        </section>
+        <section id="contact">
+            <h2>Контакты</h2>
+            <p>Email: info@borzfud.ru</p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Borzfud. Все права защищены.</p>
+    </footer>
+    <div id="menu-overlay"></div>
+    <div id="menu-content">
+        <h2>Меню</h2>
+        <button onclick="closeMenu()">Закрыть</button>
+        <div class="menu-items"></div>
+    </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
