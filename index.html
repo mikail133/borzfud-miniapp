@@ -1,29 +1,28 @@
-<!ДОКТИП html>
-<HTML язык="RU">
-<голова>
-    <мета кодировка="UTF-8">
-    <Заголовок>борзфуд</Заголовок>
-    <сценарий Истошник="https://telegram.org/js/telegram-web-app.js"></сценарий>
-</голова>
-<тело>
-    <ЧАС1>Меню Борзфуд</ЧАС1>
-    <Кнопка по клику="окно.Telegram.WebApp.openMenu()">Открыть меню</Кнопка>
-    <div идентификатор="менюСодержание"></div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Borzfud</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <h1>Меню Borzfud</h1>
+    <button onclick="window.Telegram.WebApp.openMenu()">Открыть меню</button>
+    <div id="menuContent"></div>
 
-    <сценарий>
+    <script>
         function openMenu() {
             const content = document.getElementById('menuContent');
-            контент.innerHTML = `
-                <ЧАС2>Выберите блюдо:</ЧАС2>
-                <Кнопка по клику="окно.Telegram.WebApp.closeMenu()">Закрыть</Кнопка>
-                <ул>
-                    <ли><А href="#" по клику="окно.Telegram.WebApp.menuItem(1)">Бургер</А></ли>
-                    <ли><А href="#" по клику="окно.Telegram.WebApp.menuItem(2)">Филе</А></ли>
-                    <ли><А href="#" по клику="окно.Telegram.WebApp.menuItem(3)">Суп</А></ли>
-                </ул>
+            content.innerHTML = `
+                <h2>Выберите блюдо:</h2>
+                <button onclick="window.Telegram.WebApp.closeMenu()">Закрыть</button>
+                <ul>
+                    <li><a href="#" onclick="window.Telegram.WebApp.menuItem(1)">Бургер</a></li>
+                    <li><a href="#" onclick="window.Telegram.WebApp.menuItem(2)">Филе</a></li>
+                    <li><a href="#" onclick="window.Telegram.WebApp.menuItem(3)">Суп</a></li>
+                </ul>
             `;
         }
-    </сценарий>
-</тело>
-</HTML>
-
+    </script>
+</body>
+</html>
