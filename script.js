@@ -1,62 +1,60 @@
-let menuOpen = false;
-
-function toggleMenu() {
-    menuOpen = !menuOpen;
-    document.body.classList.toggle('menu-open');
-}
-
-function openMenu() {
-    toggleMenu();
-    setTimeout(() => {
-        document.getElementById('menu-content').style.display = 'flex';
-    }, 300);
-}
-
-function closeMenu() {
-    document.getElementById('menu-content').style.display = 'none';
-    setTimeout(() => {
-        menuOpen = false;
-        document.body.classList.remove('menu-open');
-    }, 300);
-}
-
-// Функция для загрузки изображений
-function loadImage(url, callback) {
-    let img = new Image();
-    img.onload = () => {
-        callback(img);
-    };
-    img.src = url;
-}
-
-// Загружаем изображения и устанавливаем их в меню
-const menuItems = [
-    { id: 1, name: 'Бургер', price: 250, image: 'burger.jpg' },
-    { id: 2, name: 'Филе', price: 280, image: 'fillet.jpg' },
-    { id: 3, name: 'Суп', price: 200, image: 'soup.jpg' },
-    { id: 4, name: 'Пирог', price: 220, image: 'pie.jpg' },
-    { id: 5, name: 'Салат', price: 180, image: 'salad.jpg' },
-    { id: 6, name: 'Десерт', price: 150, image: 'dessert.jpg' }
-];
-
-menuItems.forEach(item => {
-    loadImage(`images/${item.image}`, img => {
-        const menuItem = document.createElement('div');
-        menuItem.className = 'menu-item';
-        menuItem.innerHTML = `
-            <img src="${img.src}" alt="${item.name}">
-            <h3>${item.name}</h3>
-            <p>Цена: ${item.price} руб.</p>
-        `;
-        document.querySelector('.menu-items').appendChild(menuItem);
-
-        // Обработчик клика для отправки данных в Telegram WebApp
-        menuItem.onclick = () => {
-            if (window.Telegram && window.Telegram.WebApp) {
-                window.Telegram.WebApp.sendData(JSON.stringify(item));
+document.addEventListener('DOMContentLoaded', function () {
+    const cart = {};
+    
+    // Добавляем товар в корзину
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function () {
+            const item = this.dataset.item;
+            const price = parseInt(this.dataset.price);
+            
+            if (!cart[item]) {
+                cart[item] = { price: price, quantity: 1 };
             } else {
-                alert(`${item.name} добавлен в заказ!`);
+                cart[item].quantity += 1;
             }
-        };
+            updateCart();
+        });
+    });
+
+    // Обновляем отображение корзины
+    function updateCart() {
+        const cartElement = document.getElementById('cart');
+        cartElement.innerHTML = '';
+
+        const items = Object.keys(cart);
+        if (items.length === 0) {
+            cartElement.innerHTML = '<p>Корзина пуста</p>';
+            return;
+        }
+
+        let total = 0;
+        items.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.textContent = `${item}: ${cart[item].quantity} x ${cart[item].price} руб = ${cart[item].quantity * cart[item].price} руб`;
+            cartElement.appendChild(itemElement);
+            total += cart[item].quantity * cart[item].price;
+        });
+
+        const totalElement = document.createElement('div');
+        totalElement.textContent = `Итого: ${total} руб`;
+        cartElement.appendChild(totalElement);
+    }
+
+    // Оформление заказа
+    document.getElementById('checkout').addEventListener('click', function () {
+        if (Object.keys(cart).length === 0) {
+            alert('Корзина пуста!');
+            return;
+        }
+
+        let order = 'Ваш заказ:\n';
+        Object.keys(cart).forEach(item => {
+            order += `${item}: ${cart[item].quantity} x ${cart[item].price} руб\n`;
+        });
+
+        const total = Object.keys(cart).reduce((sum, item) => sum + cart[item].quantity * cart[item].price, 0);
+        order += `Итого: ${total} руб\n`;
+
+        alert(order);
     });
 });
