@@ -1,56 +1,39 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borzfud</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>FastFood Mini App</title>
+    <link rel="stylesheet" href="стили.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Borzfud</div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div class="container">
+        <h1>Меню FastFood</h1>
+        <div id="menu">
+            <div class="item">
+                <h2>Кола</h2>
+                <p>Цена: 100 руб</p>
+                <button class="add-to-cart" data-item="Кола" data-price="100">Добавить в корзину</button>
             </div>
-            <ul>
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#menu">Меню</a></li>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home">
-            <h1>Добро пожаловать в Borzfud!</h1>
-            <p>Находите здесь самые вкусные блюда в городе!</p>
-            <button onclick="openMenu()">Открыть меню</button>
-        </section>
-        <section id="menu">
-            <h2>Меню</h2>
-            <div class="menu-container" id="menu-container">
-                <!-- Карточки блюд будут добавлены сюда -->
+            <div class="item">
+                <h2>Спрайт</h2>
+                <p>Цена: 90 руб</p>
+                <button class="add-to-cart" data-item="Спрайт" data-price="90">Добавить в корзину</button>
             </div>
-        </section>
-        <section id="about">
-            <h2>О нас</h2>
-            <p>Мы - команда молодых и амбициозных людей, стремящихся создать лучший ресторан в городе.</p>
-        </section>
-        <section id="contact">
-            <h2>Контакты</h2>
-            <p>Email: info@borzfud.ru</p>
-            <p>Телефон: +7 (123) 456-78-90</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Borzfud. Все права защищены.</p>
-    </footer>
+            <div class="item">
+                <h2>Фанта</h2>
+                <p>Цена: 95 руб</p>
+                <button class="add-to-cart" data-item="Фанта" data-price="95">Добавить в корзину</button>
+            </div>
+        </div>
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="script.js"></script>
+        <h2>Корзина</h2>
+        <div id="cart">
+            <p>Корзина пуста</p>
+        </div>
+        <button id="checkout">Оформить заказ</button>
+    </div>
+
+    <script src="скрипт.js"></script>
 </body>
 </html>
-
