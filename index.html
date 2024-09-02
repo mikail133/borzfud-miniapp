@@ -10,63 +10,65 @@
 <body>
     <div id="dark-mode-toggle">🌙</div>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home"><i class="fas fa-home"></i> Главная</a></li>
-                <li><a href="#products"><i class="fas fa-shopping-bag"></i> Продукты</a></li>
-                <li><a href="#about"><i class="fas fa-users"></i> О нас</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Контакт</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#products"><i class="fas fa-shopping-bag"></i> Продукты</a></li>
+                    <li><a href="#about"><i class="fas fa-users"></i> О нас</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Контакт</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <main>
-        <section id="home">
-            <h1>Добро пожаловать в BorzFud! 🍔👋</h1>
-            <p>Ваш магазин быстрых и вкусных блюд 🥙</p>
-            <a href="#products" class="cta-button">Начать покупку 🛒</a>
-        </section>
+        <main>
+            <section id="home">
+                <h1>Добро пожаловать в BorzFud! 🍔👋</h1>
+                <p>Ваш магазин быстрых и вкусных блюд 🥙</p>
+                <a href="#products" class="cta-button">Начать покупку 🛒</a>
+            </section>
 
-        <section id="products">
-            <h2>Наши продукты 🌭</h2>
-            <div class="product-grid">
-                <!-- Здесь будут отображаться продукты -->
-            </div>
-        </section>
+            <section id="products">
+                <h2>Наши продукты 🌭</h2>
+                <div class="product-grid">
+                    <!-- Здесь будут отображаться продукты -->
+                </div>
+            </section>
 
-        <section id="about">
-            <h2>О нас 🤝</h2>
-            <p>Мы специализируемся на приготовлении быстрых и вкусных блюд 🍣</p>
-        </section>
+            <section id="about">
+                <h2>О нас 🤝</h2>
+                <p>Мы специализируемся на приготовлении быстрых и вкусных блюд 🍣</p>
+            </section>
 
-        <section id="contact">
-            <h2>Свяжитесь с нами 💬</h2>
-            <form action="#" method="post">
-                <input type="text" placeholder="Имя" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Сообщение" required></textarea>
-                <button type="submit">Отправить ✉️</button>
-            </form>
-        </section>
+            <section id="contact">
+                <h2>Свяжитесь с нами 💬</h2>
+                <form action="#" method="post">
+                    <input type="text" placeholder="Имя" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Сообщение" required></textarea>
+                    <button type="submit">Отправить ✉️</button>
+                </form>
+            </section>
 
-        <section id="reviews">
-            <h2>Отзывы наших клиентов 🌟</h2>
-            <div class="review-grid">
-                <!-- Здесь будут отображаться отзывы -->
-            </div>
-        </section>
-    </main>
+            <section id="reviews">
+                <h2>Отзывы наших клиентов 🌟</h2>
+                <div class="review-grid">
+                    <!-- Здесь будут отображаться отзывы -->
+                </div>
+            </section>
+        </main>
 
-    <footer>
-        <p>&copy; 2024 BorzFud. Все права защищены 📜</p>
-    </footer>
+        <footer>
+            <p>&copy; 2024 BorzFud. Все права защищены 📜</p>
+        </footer>
 
-    <div class="cart">
-        <h2>Ваша корзина 🛒</h2>
-        <ul id="cart-list"></ul>
-        <p>Общая сумма: $<span id="total">0.00</span></p>
-        <button id="checkout">Оформить заказ 🚪</button>
+        <div class="cart">
+            <h2>Ваша корзина 🛒</h2>
+            <ul id="cart-list"></ul>
+            <p>Общая сумма: $<span id="total">0.00</span></p>
+            <button id="checkout">Оформить заказ 🚪</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
