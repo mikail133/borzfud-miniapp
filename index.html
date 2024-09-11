@@ -1,63 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borzfud MiniApp</title>
-    <link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Order</a></li>
-                <li><button id="cart-button">Cart (0)</button></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="hero">
-            <h1>Welcome to Borzfud</h1>
-            <p>Delicious food delivered to your door!</p>
-        </section>
-        <section id="menu">
-            <h2>Our Menu</h2>
-            <div class="item" data-name="Burger" data-price="5.99">
-                <h3>Burger</h3>
-                <p>$5.99</p>
-                <button>Add to Cart</button>
-            </div>
-            <div class="item" data-name="Pizza" data-price="8.99">
-                <h3>Pizza</h3>
-                <p>$8.99</p>
-                <button>Add to Cart</button>
-            </div>
-            <div class="item" data-name="Sushi" data-price="12.99">
-                <h3>Sushi</h3>
-                <p>$12.99</p>
-                <button>Add to Cart</button>
-            </div>
-            <div class="item" data-name="Salad" data-price="6.99">
-                <h3>Salad</h3>
-                <p>$6.99</p>
-                <button>Add to Cart</button>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Borzfud. All rights reserved.</p>
-    </footer>
-    <div id="cart-modal" class="hidden">
-        <div class="modal-content">
-            <h2>Your Cart</h2>
-            <ul id="cart-items"></ul>
-            <p>Total: $<span id="total-price">0.00</span></p>
-            <button id="checkout-button">Checkout</button>
-            <button id="close-cart">Close</button>
-        </div>
-    </div>
-    <script src="scripts.js"></script>
+	<div class="container">
+		<div class="inner">
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn1">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn2">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn3">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn4">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn5">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn6">Add</button>
+			</div>
+		</div>
+	</div>
+	<div class="usercard" id="usercard">
+		
+	</div>
+
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>
